@@ -1,0 +1,159 @@
+@use "/src/sass/base/variables" as *;
+@use "/src/sass/base/mixins.scss" as *;
+
+.footer {
+    min-height: 425px;
+    background-color: $dark;
+    color: $light;
+    padding: 50px 0;
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__title {
+        @include title;
+        font-size: 19px;
+        color: $light;
+        text-align: start;
+        margin-bottom: 40px;
+    }
+
+    &__text {
+        font-weight: 400;
+        font-size: 16px;
+        color: $light;
+        margin-bottom: 40px;
+    }
+
+    &__newsletter {
+        margin-bottom: 40px;
+    }
+
+    &__field {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    &__input {
+        width: 292px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        color: #fff;
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__floating-label {
+        position: absolute;
+        left: 0;
+        top: 8px; /* старт внутри поля */
+        font-weight: 400;
+        font-size: 14px;
+        color: $ui-active;
+        pointer-events: none; /* клики проходят к инпуту */
+        transition:
+            top 0.2s ease,
+            font-size 0.2s ease,
+            color 0.2s ease,
+            padding 0.2s ease,
+            background-color 0.2s ease;
+    }
+
+    &__label {
+        margin-bottom: 20px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 200%;
+        color: $light;
+    }
+
+    &__field:focus-within .footer__floating-label {
+        display: none;
+    }
+
+    &__field:has(.footer__input:valid) .footer__floating-label {
+        display: none;
+    }
+    &__check-block {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        a {
+            color: #a22dc6;
+            text-decoration: none;
+        }
+    }
+
+    &__checkbox {
+        position: relative;
+        margin-right: 15px;
+        width: 15px;
+        height: 15px;
+        background: transparent;
+        appearance: none;
+        border: 1px solid $light;
+        border-radius: 2px;
+        cursor: pointer;
+        &:checked {
+            background-color: transparent;
+            border-color: $light;
+            &::after {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 1px;
+                width: 4px;
+                height: 8px;
+                border: solid #fff; /* цвет галочки */
+                border-width: 0 2px 2px 0;
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 60px;
+        margin-bottom: 2.5rem;
+    }
+
+    &__list {
+        list-style: none;
+        padding: 0;
+    }
+
+    &__link {
+        color: $light;
+        text-decoration: none;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 200%;
+        transition: color 0.3s ease;
+        &:hover {
+            color: $ceramic;
+        }
+    }
+
+    &__social-links {
+        display: flex;
+        gap: 1px;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__social-link {
+        color: $light;
+        font-size: 24px;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $ceramic;
+        }
+    }
+}
+
