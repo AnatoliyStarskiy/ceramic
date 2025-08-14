@@ -1,0 +1,110 @@
+@use "/src/sass/base/variables" as *;
+
+.works {
+    margin-bottom: 60px;
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__wrapper {
+        position: relative;
+    }
+
+    .swiper__img {
+        width: 100%;
+        min-height: 223px;
+        object-fit: cover;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next,
+    .works__slider-nav {
+        display: none;
+    }
+
+    .swiper-pagination {
+        bottom: -35px;
+    }
+
+    .swiper-pagination-bullet {
+        width: 10px;
+        height: 10px;
+        background-color: $dark;
+        border-radius: 0;
+        opacity: 1;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: $ceramic;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .works {
+        &__title {
+            margin-bottom: 45px;
+        }
+        .swiper__img {
+            display: block;
+            width: 400px;
+            min-height: 223px;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .works {
+        &__title {
+            margin-bottom: 80px;
+        }
+        &__slider {
+            position: relative;
+            margin: 0 40px;
+        }
+        .swiper-pagination {
+            bottom: -30px;
+        }
+        .swiper-button-prev,
+        .swiper-button-next,
+        .works__slider-nav {
+            display: block;
+        }
+        .works__slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 21px;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+            &::before {
+                width: auto;
+                margin: 0;
+            }
+        }
+
+        .icon-left-open {
+            left: 13px;
+        }
+        .icon-right-open {
+            right: 13px;
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .works {
+        &__slider {
+            margin: 0 85px;
+        }
+
+        .icon-left-open {
+            left: 40px;
+        }
+        .icon-right-open {
+            right: 40px;
+        }
+    }
+}

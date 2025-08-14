@@ -115,10 +115,14 @@
     .touch {
         &__media {
             display: block;
-            width: 550px;
             height: 342px;
-            object-fit: cover;
             box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        &__img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
 
         &__input {
@@ -126,6 +130,23 @@
                 border: none;
                 outline: 1px solid $dark;
             }
+        }
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .touch {
+        &__wrapper {
+            gap: 147px;
+        }
+
+        &__fieldset {
+            display: flex;
+            gap: 45px;
+        }
+
+        &__textarea {
+            max-width: 300px;
         }
     }
 }
