@@ -1,0 +1,165 @@
+@use "/src/sass/base/variables" as *;
+
+.catalog {
+    padding-top: 50px;
+    margin-bottom: 60px;
+
+    &__title {
+        margin-bottom: 60px;
+    }
+
+    &__tabs {
+        margin-bottom: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px 50px;
+        padding: 13px 25px;
+        border: 1px solid $dark;
+    }
+
+    &__tab {
+        font-size: 20px;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: $dark;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &-active {
+            border-bottom: 2px solid $dark;
+        }
+
+        &:hover {
+            border-bottom: 2px solid $dark;
+        }
+    }
+
+    &__panel {
+        margin-bottom: 20px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        gap: 20px;
+        justify-content: center;
+    }
+}
+
+.product-card {
+    width: 340px;
+    min-height: 275px;
+    border: 1px solid $dark;
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
+    &__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-decoration: none;
+        color: $dark;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__img {
+        width: 100%;
+        height: 198px;
+        object-fit: cover;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+
+        padding: 11px 12px 17px 12px;
+        gap: 7.7px;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    &__price {
+        font-weight: 500;
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .catalog {
+        &__tabs {
+            width: 459px;
+        }
+
+        &__content {
+            position: relative;
+            &::before {
+                position: absolute;
+                content: "";
+                top: -10px;
+                left: -10px;
+                display: block;
+                width: 200px;
+                height: 1px;
+                background-color: $dark;
+                margin-bottom: 20px;
+            }
+            &::after {
+                position: absolute;
+                content: "";
+                display: block;
+                top: -30px;
+                left: -10px;
+                width: 1px;
+                height: 200px;
+                background-color: $dark;
+                margin-top: 20px;
+            }
+        }
+
+        &__grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .catalog {
+        &__content {
+            &::before {
+                top: -25px;
+                left: -25px;
+            }
+            &::after {
+                top: -45px;
+                left: -25px;
+            }
+        }
+        &__panel {
+            margin-bottom: 35px;
+        }
+
+        &__grid {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+        }
+    }
+}
+@media screen and (min-width: 1920px) {
+    .catalog {
+        &__panel {
+            margin-bottom: 83px;
+        }
+        &__grid {
+            grid-template-columns: repeat(4, 1fr);
+            gap: 83px;
+        }
+    }
+}

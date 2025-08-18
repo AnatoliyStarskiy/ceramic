@@ -29,6 +29,76 @@
     &__nav {
         display: none;
     }
+
+    &__menu {
+        padding: 50px 10px;
+        position: fixed;
+        top: 0;
+        left: -100vw;
+        width: 100vw;
+        height: 100vh;
+        background-color: $light;
+        transition: all 0.3s;
+        z-index: 1000;
+        &-active {
+            transform: translateX(100%);
+        }
+        &-close {
+            position: relative;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-bottom: 50px;
+            span {
+                position: absolute;
+                display: block;
+                width: 20px;
+                height: 1px;
+                background-color: $dark;
+                &:nth-child(1) {
+                    top: 10px;
+                    left: 10px;
+                    transform: translateX(-50%) rotate(45deg);
+                }
+                &:nth-child(2) {
+                    top: 10px;
+                    left: 50%;
+                    transform: translateX(-50%) rotate(-45deg);
+                }
+            }
+        }
+        &-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            height: 100%;
+            padding-left: 14px;
+            ul {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 25px;
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    a {
+                        color: $dark;
+                        font-size: 20px;
+                        font-weight: 400;
+                        font-style: normal;
+                        line-height: normal;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 .burger {
@@ -37,6 +107,7 @@
     flex-direction: column;
     row-gap: 10px;
     padding-right: 35px;
+    cursor: pointer;
 
     span {
         display: block;
@@ -73,6 +144,10 @@
             line-height: normal;
             text-transform: uppercase;
             text-decoration: none;
+        }
+
+        &__menu {
+            display: none;
         }
     }
 
