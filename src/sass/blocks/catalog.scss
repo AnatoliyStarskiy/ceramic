@@ -53,12 +53,12 @@
 .product-card {
     width: 340px;
     min-height: 275px;
-    border: 1px solid $dark;
+
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.25);
     &__link {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start;
         text-decoration: none;
         color: $dark;
         width: 100%;
@@ -73,10 +73,11 @@
 
     &__content {
         display: flex;
+        height: 100%;
         flex-direction: column;
         align-items: start;
-        justify-content: space-between;
-
+        border: 1px solid $dark;
+        border-width: 0 1px 1px 1px;
         padding: 11px 12px 17px 12px;
         gap: 7.7px;
     }
@@ -100,27 +101,24 @@
 
         &__content {
             position: relative;
+            padding: 10px;
             &::before {
-                position: absolute;
                 content: "";
-                top: -10px;
-                left: -10px;
-                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 200px;
                 height: 1px;
                 background-color: $dark;
-                margin-bottom: 20px;
             }
             &::after {
-                position: absolute;
                 content: "";
-                display: block;
-                top: -30px;
-                left: -10px;
+                position: absolute;
+                top: 0;
+                left: 0;
                 width: 1px;
                 height: 200px;
                 background-color: $dark;
-                margin-top: 20px;
             }
         }
 
@@ -133,14 +131,7 @@
 @media screen and (min-width: 1200px) {
     .catalog {
         &__content {
-            &::before {
-                top: -25px;
-                left: -25px;
-            }
-            &::after {
-                top: -45px;
-                left: -25px;
-            }
+            padding: 25px 25px 0;
         }
         &__panel {
             margin-bottom: 35px;
